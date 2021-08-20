@@ -79,7 +79,12 @@ getsoftBooks()
   this.allbooks=this.DataService.getbooks();
 }
 
-
+bookDelete(bookid:any)
+{
+this.DataService.deletebook(bookid).subscribe(book=>{
+this.getsoftBooks();
+  })
+}
 
 }
 

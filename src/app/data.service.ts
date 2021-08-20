@@ -20,6 +20,17 @@ getbookbytid(bookid:string)
 
 
 
+deletebook(bookid:string):Observable<number>
+   {
+     let httpheaders = new HttpHeaders()
+     .set('Content-Type', 'application/Json');
+     let options={
+       headers:httpheaders
+    };
+     return this.http.delete<number>(this.bookUrl+"/"+bookid);
+   }
+
+
 updatebook(book:Book):Observable<number>
    {
      let httpheaders = new HttpHeaders()
