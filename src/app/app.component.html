@@ -1,0 +1,50 @@
+
+
+<h1>angular post method</h1>
+<p *ngIf="datasaved" > Data Save Succefully </p>
+<form [formGroup]="bookForm" (ngSubmit)="onFormSubmit()">
+  <table>
+    <tr>
+    <td>employee_name</td>
+    <td>
+      <input formControlName="employee_name" >
+    </td>
+  </tr>
+  <tr>
+    <td>employee_salary</td>
+    <td>
+      <input formControlName="employee_salary" >
+    </td>
+  </tr>
+  <tr>
+    <td>employee_age</td>
+    <td>
+      <input formControlName="employee_age" >
+    </td>
+  </tr>
+    <tr>
+      <td colspan="2">
+        <button [disabled]="bookForm.invalid">Submit</button>
+      </td>
+    </tr>
+  </table>
+
+
+</form>
+<h3>view</h3>
+<table border="1" style="text-align: center;">
+<tr >
+  <th>id</th>
+  <th>employee_name</th>
+  <th>employee_salary</th>
+  <th>employee_age</th>
+  <th>Edit-data</th>
+</tr>
+<tr *ngFor='let bk of allbooks|async'>
+  <td>{{bk.id}}</td>
+  <td>{{bk.employee_name}}</td>
+  <td>{{bk.employee_salary}}</td>
+  <td>{{bk.employee_age}}</td>
+  <td><button type="button" (click)="bookEdit(bk.id)">Edit</button></td>
+</tr>
+</table>
